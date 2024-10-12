@@ -7,13 +7,13 @@ function checkAnswer() {
 
     // Step 3: Provide feedback based on the user's selection
     const feedback = document.getElementById("feedback"); // Select the feedback element
-    
+
     // Check if a radio button is selected
     if (userAnswer) {
         const answerValue = userAnswer.value; // Get the value of the selected answer
 
         // Compare the user's answer with the correct answer
-        if (answerValue === correctAnswer) {
+        if (answerValue === correctAnswer) { // Ensure this comparison is correct
             // Providing feedback for the correct answer
             feedback.textContent = "Correct! Well done."; // Correct answer feedback
         } else {
