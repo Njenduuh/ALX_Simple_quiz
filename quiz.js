@@ -1,19 +1,18 @@
+// Step 1: Create the checkAnswer function
 function checkAnswer() {
-    // Step 1: Identify the correct answer
+    // Step 2: Identify the correct answer
     const correctAnswer = "4"; // Correct answer to the quiz question
 
-    // Step 2: Retrieve the user's answer
-    const userAnswer = document.querySelector('input[name="quiz"]:checked'); // Select checked radio button
-
-    // Step 3: Provide feedback based on the user's selection
+    // Step 3: Retrieve the user's selected answer
+    const userAnswerElement = document.querySelector('input[name="quiz"]:checked'); // Select checked radio button
     const feedback = document.getElementById("feedback"); // Select the feedback element
 
     // Check if a radio button is selected
-    if (userAnswer) {
-        const answerValue = userAnswer.value; // Get the value of the selected answer
+    if (userAnswerElement) {
+        const userAnswer = userAnswerElement.value; // Get the value of the selected answer
 
-        // Compare the user's answer with the correct answer
-        if (answerValue === correctAnswer) { // Ensure this comparison is correct
+        // Step 4: Compare the user's answer with the correct answer
+        if (userAnswer === correctAnswer) { // Ensure correct comparison syntax
             // Providing feedback for the correct answer
             feedback.textContent = "Correct! Well done."; // Correct answer feedback
         } else {
@@ -21,11 +20,11 @@ function checkAnswer() {
             feedback.textContent = "That's incorrect. Try again!"; // Incorrect answer feedback
         }
     } else {
-        // Handle the case when no answer is selected
-        feedback.textContent = "Please select an answer.";
+        // Provide feedback if no answer is selected
+        feedback.textContent = "Please select an answer."; // Feedback for no selection
     }
 }
 
-// Step 4: Retrieve the "submit-answer" button and add an event listener
+// Step 5: Retrieve the "submit-answer" button and add an event listener
 const submitButton = document.getElementById("submit-answer"); // Retrieve the submit button
 submitButton.addEventListener("click", checkAnswer); // Add click event listener to the submit button
